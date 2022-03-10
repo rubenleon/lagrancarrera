@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>La carrera final</title>
+	<title>La Gran Carrera</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
 <!--===============================================================================================-->
@@ -46,7 +47,7 @@
 		<!--  -->
 		<div class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-120">
 			<h3 class="h3-propio">
-				<i class="fa-solid fa-person-running"></i> La carrera final
+				<i class="fa-solid fa-person-running"></i> La gran carrera
 			</h3>
 			<h3 class="h4-propio">
 				¿Corredor o Apostador?
@@ -79,6 +80,9 @@
 					<span class="m1-txt2 ">SEGUNDOS</span>
 				</div>
 			</div>
+			<p>
+				<button type="button" class="btn btn-warning ubicacion"><a href="https://goo.gl/maps/2qzvobVu2FsnYpiu8" target="_blank"><i class="fa-solid fa-location-dot"></i> Ubicación</a></button>
+			</p>
 		</div>
 
 		<!--  -->
@@ -89,8 +93,8 @@
 				<i class="fa fa-instagram"></i>
 			</a> -->
 
-			<a href="https://api.whatsapp.com/send?text=La gran carrera https://parzibyte.me/blog" class="size3 flex-c-m how-social trans-04 m-r-3 m-l-3 m-b-5">
-				<i class="fa fa-whatsapp"></i>
+			<a href="https://api.whatsapp.com/send?text=La gran carrera https://rubenleon.github.io/lagrancarrera/" class="size3 flex-c-m how-social trans-04 m-r-3 m-l-3 m-b-5">
+				<i class="fa-brands fa-whatsapp"></i>
 			</a>
 		</div>
 	</div>
@@ -110,17 +114,74 @@
 	<script src="vendor/countdowntime/moment.min.js"></script>
 	<script src="vendor/countdowntime/moment-timezone.min.js"></script>
 	<script src="vendor/countdowntime/moment-timezone-with-data.min.js"></script>
+
+
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<script>
+		function timeDiffCalc(dateFuture, dateNow) {
+			let diffInMilliSeconds = Math.abs(dateFuture - dateNow) / 1000;
+
+			// calculate days
+			const days = Math.floor(diffInMilliSeconds / 86400);
+			diffInMilliSeconds -= days * 86400;
+			console.log('calculated days', days);
+
+			// calculate hours
+			const hours = Math.floor(diffInMilliSeconds / 3600) % 24;
+			diffInMilliSeconds -= hours * 3600;
+			console.log('calculated hours', hours);
+
+			// calculate minutes
+			const minutes = Math.floor(diffInMilliSeconds / 60) % 60;
+			diffInMilliSeconds -= minutes * 60;
+			console.log('minutes', minutes);
+
+			// calculate segundos
+			const seg = Math.floor(diffInMilliSeconds)
+			console.log('segundos', seg);
+
+			/*
+			let difference = '';
+			if (days > 0) {
+			difference += (days === 1) ? `${days} day, ` : `${days} days, `;
+			}
+
+			difference += (hours === 0 || hours === 1) ? `${hours} hour, ` : `${hours} hours, `;
+
+			difference += (minutes === 0 || hours === 1) ? `${minutes} minutes` : `${minutes} minutes`; 
+
+			return difference;
+			*/
+			return [days,hours,minutes,seg]
+		}
+
+		//console.log(timeDiffCalc(new Date('2019/10/1 04:10:00'), new Date('2022/06/1 18:30:00')));
+		//tiempo = timeDiffCalc(new Date('2022/06/1 17:30:00'), new Date('2022/06/1 18:30:30'))
+		tiempo = timeDiffCalc(new Date(), new Date('2022/06/1 18:30:30'))
+		
+		dias = tiempo[0]
+		horas = tiempo[1]
+		minutos = tiempo[2]
+		segundos = tiempo[3]
+
+		console.log("tiempo: ",dias,horas,minutos,segundos)
+
+
+		//https://bearnithi.com/2019/11/10/how-to-calculate-the-time-difference-days-hours-minutes-between-two-dates-in-javascript/#:~:text=Calculate%20Hours%20Difference%20between%20Two%20Dates%20in%20JavaScript&text=To%20calculate%20the%20hours%20difference,the%20remainder%20using%20modules%20operator
+		// the time difference is:
+		// 1 day, 14 hours, 10 minutes
+
+
+
 		$('.cd100').countdown100({
 			/*Set Endtime here*/
 			/*Endtime must be > current time*/
 			endtimeYear: 0,
 			endtimeMonth: 0,
-			endtimeDate: 35,
-			endtimeHours: 19,
-			endtimeMinutes: 0,
-			endtimeSeconds: 0,
+			endtimeDate: dias,
+			endtimeHours: horas,
+			endtimeMinutes: minutos,
+			endtimeSeconds: segundos,
 			timeZone: "" 
 			// ex:  timeZone: "America/New_York"
 			//go to " http://momentjs.com/timezone/ " to get timezone

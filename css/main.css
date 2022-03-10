@@ -299,6 +299,15 @@ Primary use:
   color: #fff;
 }
 
+.ubicacion{
+  font-size: 1.6em;
+  margin-top: 20px;
+  color:#fff;
+}
+
+.ubicacion a{
+  color:#fff;
+}
 
 
 
