@@ -28,15 +28,13 @@
           var endMinutes = options.endtimeMinutes;
           var endSeconds = options.endtimeSeconds;
 
-          if(tZ == "") {
-            var deadline = new Date(endYear, endMonth - 1, endDate, endHours, endMinutes, endSeconds);
-          } 
-          else {
-            var deadline = moment.tz([endYear, endMonth - 1, endDate, endHours, endMinutes, endSeconds], tZ).format();
-          }
+          
+          var deadline = new Date(endDate, endHours, endMinutes, endSeconds);
+            
+        
 
           if(Date.parse(deadline) < Date.parse(timeNow)) {
-            var deadline = new Date(Date.parse(new Date()) + endDate * 24 * 60 * 60 * 1000 + endHours * 60 * 60 * 1000); 
+            var deadline = new Date(Date.parse(new Date()) + endDate * 24 * 60 * 60 * 1000 + endHours * 60 * 60 * 1000 + endMinutes * 60 * 1000 + endSeconds * 1000); 
           }
           
           
@@ -48,6 +46,7 @@
             var minutes = Math.floor((t / 1000 / 60) % 60);
             var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
             var days = Math.floor(t / (1000 * 60 * 60 * 24));
+            //console.log("minutos: ",minutes)
             return {
               'total': t,
               'days': days,
