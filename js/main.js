@@ -77,3 +77,18 @@
 
 
 })(jQuery);
+
+
+document.getElementById("btnInstagram").addEventListener("click", () => {
+    new Fancybox(
+      [
+        {
+          src: "<div><h1>¿Instagram? 🤣🤣</h1><br /><h2>La gran carrera esta por encima de esa mierda 💩 ... </h2></div>",
+          type: "html",
+        },
+      ],
+      {
+        // Your custom options
+      }
+    );
+  })

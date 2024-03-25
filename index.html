@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>La Gran Carrera</title>
+	<title>La Gran Carrera II</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -9,8 +9,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
 <!--===============================================================================================-->
@@ -19,6 +18,12 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+
+
+
 </head>
 <body>
 	
@@ -47,10 +52,14 @@
 		<!--  -->
 		<div class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-120">
 			<h3 class="h3-propio">
-				<i class="fa-solid fa-person-running"></i> La gran carrera
+				🤣 La gran carrera II
 			</h3>
 			<h3 class="h4-propio">
 				¿Corredor o Apostador?
+			</h3>
+
+			<h3 id="fecha-carrera">
+				Viernes <mark>20</mark> de Septiembre del 2024
 			</h3>
 
 			<div class="flex-w flex-c cd100">
@@ -81,32 +90,34 @@
 				</div>
 			</div>
 			<p>
-				<button type="button" class="btn btn-warning ubicacion"><a href="https://goo.gl/maps/2qzvobVu2FsnYpiu8" target="_blank"><i class="fa-solid fa-location-dot"></i> Lugar</a></button>
+				<button type="button" class="btn btn-warning ubicacion"><a href="https://www.google.es/maps/place/Plaza+Auditorio+Municipal/@42.306231,-5.6851841,17.25z/data=!4m15!1m8!3m7!1s0xd382c593068ef79:0x8ac1e1f0a18e4610!2s24249+Pobladura+de+Pelayo+Garc%C3%ADa,+Le%C3%B3n!3b1!8m2!3d42.3060676!4d-5.6839275!16s%2Fm%2F02z8y_v!3m5!1s0xd382da4845992e1:0x5773745a885eb422!8m2!3d42.3066871!4d-5.6814571!16s%2Fg%2F11kqtl3l5j?entry=ttu" target="_blank"><i class="bi bi-cursor-fill"></i> Lugar del evento</a></button>
 			</p>
 
 
 			<div class="flex-w flex-c-m p-b-35 redes">
 			
+			<button id="btnInstagram" class="flex-c-m how-social trans-04 m-r-3 m-l-3 m-b-5">
+				<i class="bi bi-instagram"></i></a>
+			</button>
 
-				<!-- <a href="#" class="size3 flex-c-m how-social trans-04 m-r-3 m-l-3 m-b-5">
-					<i class="fa fa-instagram"></i>
-				</a> -->
+				
+
+
 	
-				<a href="https://api.whatsapp.com/send?text=La gran carrera https://rubenleon.github.io/lagrancarrera/" class="size3 flex-c-m how-social trans-04 m-r-3 m-l-3 m-b-5">
-					<i class="fa-brands fa-whatsapp"></i>
-				</a>
-			</div>
+			
+		</div>
 
 
 		</div>
 
-		<!--  -->
+		
 		
 	</div>
 
 
-
 	
+
+	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -122,6 +133,7 @@
 
 
 	<script src="vendor/countdowntime/countdowntime.js"></script>
+	
 	<script>
 		function timeDiffCalc(dateFuture, dateNow) {
 			let diffInMilliSeconds = Math.abs(dateFuture - dateNow) / 1000;
@@ -162,12 +174,12 @@
 
 		//console.log(timeDiffCalc(new Date('2019/10/1 04:10:00'), new Date('2022/06/1 18:30:00')));
 		//tiempo = timeDiffCalc(new Date('2022/06/1 17:30:00'), new Date('2022/06/1 18:30:30'))
-		tiempo = timeDiffCalc(new Date(), new Date('2022/06/1 18:30:30'))
+		let tiempo = timeDiffCalc(new Date(), new Date('2024/09/20 18:30:00'))
 		
-		dias = tiempo[0]
-		horas = tiempo[1]
-		minutos = tiempo[2]
-		segundos = tiempo[3]
+		let dias = tiempo[0]
+		let horas = tiempo[1]
+		let minutos = tiempo[2]
+		let segundos = tiempo[3]
 
 		console.log("tiempo: ",dias,horas,minutos,segundos)
 
